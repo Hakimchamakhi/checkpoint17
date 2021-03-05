@@ -2,7 +2,7 @@ import './App.css';
 import Filter from './components/Filter'
 import MovieInfo from './components/MovieInfo';
 import {Route, Switch, BrowserRouter} from 'react-router-dom'
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 
 function App() {
   const [movies, setMovies] = useState([
@@ -14,9 +14,6 @@ function App() {
     {id:"6", title: "Titanic", description:"This is Titanic", trailerLink:"https://www.youtube.com/embed/kVrqfYjkTdQ", posterUrl:"https://img-4.linternaute.com/qN-WR7DLLyCdwzybd_TCAnVsrpE=/1240x/c6bfd8570c3a4cdf8983a07bc8c67bb0/ccmcms-linternaute/135211.jpg", rate:"7.9"}
   ]);
   const [show, setShow] = useState(false)
-  useEffect(() => {
-    setMovies(movies => movies);
-}, [])
   const submitting = e => {
       e.preventDefault();
         setMovies([
@@ -31,7 +28,6 @@ function App() {
             }
         ]);
       alert(`${document.getElementsByName("title")[0].value} has been added!`)
-      console.log(movies)
   }
 
   return (
